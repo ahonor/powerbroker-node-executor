@@ -23,3 +23,14 @@ providers:
           type: String
           required: true
           description: executable to use for pbrun
+        - name: ssh_key_storage_path
+          title: SSH key Storage Path
+          type: String
+          required: false
+          description: "Optional storage path for ssh-key file. Can contain property references to node attributes. A node attribute named ssh-key-storage-path will override this value."
+          scope: Instance
+          renderingOptions:
+            selectionAccessor: "STORAGE_PATH"
+            valueConversion: "STORAGE_PATH_AUTOMATIC_READ"
+            storage-path-root: "keys"
+            instance-scope-node-attribute: "ssh-key-storage-path"
